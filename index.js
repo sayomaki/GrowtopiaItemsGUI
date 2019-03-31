@@ -2,7 +2,7 @@ const app = require('electron').remote; // Load remote compnent that contains th
 const dialog = app.dialog;
 const fs = require('fs');
 
-let itemFile;
+let itemFile, itemPath;
 let loaded = false;
 let parsedDB = {};
 let parsedHash = 0;
@@ -31,6 +31,7 @@ const getFile = () => {
             }
 
             itemFile = data;
+            itemPath = fileNames[0];
             loaded = true;
             generateView();
         });
@@ -53,6 +54,9 @@ const generateView = () => {
 const showInfo = () => {
     if (!loaded) return;
 
+    const stats = fs.statSync(itemPath);
+    const mtime = new Date(require('util').inspect(stats.mtime));
+
     $('#content').html(`
     <div class="item-content">
         <div class="item-header">
@@ -61,15 +65,24 @@ const showInfo = () => {
             </ol>
         </div>
         <div class="item-info">
-            <div class="item-count card border-success mb-3" style="max-width: 20rem;">
+            <div class="item-count card border-success mb-3 mr-3">
                 <div class="card-header h4">Items Info</div>
-                    <div class="card-body">
-                        <p>
-                        Total item count: ${parsedDB.itemCount}<br/>
-                        File version: ${parsedDB.itemsdatVersion}
-                        </p>
-                        <button type="button" class="btn btn-success btn-lg" onclick="browseItems()">Browse Items...</button>
-                    </div>
+                <div class="card-body">
+                    <p>
+                    Total item count: ${parsedDB.itemCount}<br/>
+                    File version: ${parsedDB.itemsdatVersion}
+                    </p>
+                    <button type="button" class="btn btn-success btn-lg" onclick="browseItems()">Browse Items...</button>
+                </div>
+            </div>
+            <div class="item-count card border-info mb-3 mr-3">
+                <div class="card-header h4">File Info</div>
+                <div class="card-body">
+                    <p>
+                    File size: ${(itemFile.length / 1000 / 1000).toFixed(2)} MB<br/>
+                    Last modified: ${mtime.toISOString().slice(0,19).replace(/T/g," ")}
+                    </p>
+                    <button type="button" class="btn btn-info btn-lg" onclick="fileInfo()">More info...</button>
                 </div>
             </div>
         </div>
@@ -157,4 +170,8 @@ const dynamicSearch = () => {
      }
    }
  }
+}
+
+const fileInfo = () => {
+  console.log('ok');
 }
