@@ -50,7 +50,15 @@ body {
 .item-info {
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 15px;
+  font-size: 1rem;
+}
+
+.item-info .card {
+  margin-right: 5px !important;
+  margin-left: 5px;
+  max-width: 48%;
+  min-width: 48%;
+  display: inline-block;
 }
 
 .item-info .card-header {
