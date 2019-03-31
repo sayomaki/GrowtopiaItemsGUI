@@ -192,5 +192,27 @@ const fileInfo = () => {
               <li class="breadcrumb-item active">File Info</li>
           </ol>
       </div>
+      <div class="file-info">
+          <table class="table table-hover">
+              <tbody>
+              <tr>
+                <td>Location</td>
+                <td>${itemPath}</td>
+              </tr>
+              <tr>
+                <td>Growtopia Hash</td>
+                <td>${parsedHash}</td>
+              </tr>
+              <tr>
+                <td>MD5 Hash</td>
+                <td>${itemMD5.toUpperCase()}</td>
+              </tr>
+              <tr>
+                <td>SHA256 Hash</td>
+                <td>${itemSHA256.toUpperCase()}</td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
   </div>`);
 }
