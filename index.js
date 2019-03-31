@@ -88,13 +88,14 @@ const browseItems = () => {
                 <li class="breadcrumb-item active">Browse</li>
             </ol>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Type</th>
-                <th scope="col">Column heading</th>
-                <th scope="col">Column heading</th>
-                <th scope="col">Column heading</th>
+        <div class="item-table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
                 </tr>
             </thead>
             <tbody>
@@ -159,6 +160,8 @@ const browseItems = () => {
                 <td>Column content</td>
                 </tr>
             </tbody>
-        </table> 
-    </div>`);
+            </table>
+        </div>
+    </div>
+    `);
 }
