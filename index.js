@@ -29,7 +29,7 @@ const getFile = () => {
             alert("An error ocurred reading the file :" + err.message);
             return;
             }
-            
+
             itemFile = data;
             loaded = true;
             generateView();
@@ -88,8 +88,8 @@ const browseItems = () => {
             <tr class="table-primary">
                 <td>${item.itemID}</td>
                 <td>${item.name}</td>
-                <td>Column content</td>
-                <td>Column content</td>
+                <td>-</td>
+                <td>-</td>
             </tr>`;
         }
         else {
@@ -97,8 +97,8 @@ const browseItems = () => {
             <tr class="table-secondary">
                 <td>${item.itemID}</td>
                 <td>${item.name}</td>
-                <td>Column content</td>
-                <td>Column content</td>
+                <td>-</td>
+                <td>-</td>
             </tr>`;
         }
         alt = !alt;
@@ -112,14 +112,22 @@ const browseItems = () => {
                 <li class="breadcrumb-item active">Browse</li>
             </ol>
         </div>
+        <div class="item-search form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"><img src="https://img.icons8.com/small/16/000000/search.png"/></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Search item" id="search-input" onkeyup="dynamicSearch()"/>
+            </div>
+        </div>
         <div class="item-table">
-            <table class="table table-hover">
+            <table id="item-list" class="table table-hover">
                 <thead>
-                    <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Column heading</th>
-                    <th scope="col">Column heading</th>
+                    <tr class="table-success">
+                    <th scope="col" class="table-sticky">ID</th>
+                    <th scope="col" class="table-sticky">Name</th>
+                    <th scope="col" class="table-sticky">-</th>
+                    <th scope="col" class="table-sticky">-</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -129,4 +137,24 @@ const browseItems = () => {
         </div>
     </div>
     `);
+}
+
+const dynamicSearch = () => {
+  let td, i, txtValue;
+  const filter = $('#search-input').val().toUpperCase();
+  const table = document.getElementById("item-list");
+  const tr = table.getElementsByTagName("tr");
+
+ // Loop through all table rows, and hide those who don't match the search query
+ for (i = 0; i < tr.length; i++) {
+   td = tr[i].getElementsByTagName("td")[1];
+   if (td) {
+     txtValue = td.textContent || td.innerText;
+     if (txtValue.toUpperCase().indexOf(filter) > -1) {
+       tr[i].style.display = "";
+     } else {
+       tr[i].style.display = "none";
+     }
+   }
+ }
 }
