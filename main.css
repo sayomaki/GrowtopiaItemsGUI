@@ -1,0 +1,69 @@
+body {
+  background-image: url('https://images-ext-1.discordapp.net/external/sB2vHBq-S1asWB0VvVNqfR_Fpvzyr7urcd9V9N2hgGQ/https/www.growtopiagame.com/resources/assets/images/grow_header.jpg?width=988&height=378');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.load-file {
+  margin-top: 25vh;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 10px;
+}
+
+.load-text {
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  display: block;
+}
+
+.load-btn {
+  display: block;
+  background-color: rgba(0, 143, 251, 0.3);
+}
+
+.item-content {
+  margin-top: 1.5%;
+  margin-left: 4%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 0;
+  border-radius: 10px;
+  width: 92%;
+  height: 80%;
+}
+
+.item-info {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+.item-info .card-header {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.item-info .card-body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.item-table {
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  height: 85%;
+}
