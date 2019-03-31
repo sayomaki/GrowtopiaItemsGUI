@@ -108,7 +108,7 @@ const browseItems = () => {
                   <td>${item.itemID}</td>
                   <td>${item.name}</td>
                   <td>${item.rarity}</td>
-                  <td>-</td>
+                  <td>${getItemType(item)}</td>
               </tr>`;
           }
           else {
@@ -117,7 +117,7 @@ const browseItems = () => {
                   <td>${item.itemID}</td>
                   <td>${item.name}</td>
                   <td>${item.rarity}</td>
-                  <td>-</td>
+                  <td>${getItemType(item)}</td>
               </tr>`;
           }
           alt = !alt;
@@ -148,7 +148,7 @@ const browseItems = () => {
                     <th scope="col" class="table-sticky">ID</th>
                     <th scope="col" class="table-sticky">Name</th>
                     <th scope="col" class="table-sticky">Rarity</th>
-                    <th scope="col" class="table-sticky">-</th>
+                    <th scope="col" class="table-sticky">Type</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -233,4 +233,12 @@ const resetFile = () => {
     <button type="button" class="load-btn btn btn-outline-primary btn-lg btn-block" onclick="getFile()">Select file...</button>
   </div>
   `);
+}
+
+const getItemType = (item) => {
+  if (item.actionType == 18) return 'Background';
+  else if (item.actionType == 19) return 'Seed';
+  else if (item.actionType == 8) return 'Consumable';
+  else if (item.actionType == 20) return 'Clothing';
+  else return 'Foreground';
 }
