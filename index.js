@@ -48,8 +48,12 @@ const generateView = () => {
     parsedHash = ItemUtils.hashItems(itemFile, itemFile.length);
 
     $('#content').html(`
-    <div class="itemNav">
-        
+    <div class="item-content">
+        <div class="item-header">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Home</li>
+            </ol>
+        </div>
     </div>
     `);
 }
