@@ -173,5 +173,15 @@ const dynamicSearch = () => {
 }
 
 const fileInfo = () => {
-  console.log('ok');
+  if (!loaded) return;
+
+  $('#content').html(`
+  <div class="item-content">
+      <div class="item-header">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" onclick="showInfo()">Home</a></li>
+              <li class="breadcrumb-item active">File Info</li>
+          </ol>
+      </div>
+  </div>`);
 }
