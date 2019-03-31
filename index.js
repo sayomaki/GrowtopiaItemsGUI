@@ -1,4 +1,4 @@
-const app = require('electron').remote; // Load remote compnent that contains the dialog dependency
+const app = require('electron').remote;
 const dialog = app.dialog;
 const fs = require('fs');
 
@@ -12,7 +12,6 @@ let tableHTML = '';
 
 const getFile = () => {
     dialog.showOpenDialog((fileNames) => {
-        // fileNames is an array that contains all the selected
         if(fileNames === undefined){
             console.log("No file selected");
             return;
