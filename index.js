@@ -6,6 +6,7 @@ let itemFile, itemPath;
 let loaded = false;
 let parsedDB = {};
 let parsedHash = 0;
+let tableHTML = '';
 
 const getFile = () => {
     dialog.showOpenDialog((fileNames) => {
@@ -93,29 +94,32 @@ const showInfo = () => {
 const browseItems = () => {
     if (!loaded) return;
 
-    let generatedHTML = '';
-    let alt = true;
-    Object.values(parsedDB.items).forEach(item => {
-        if (alt) {
-            generatedHTML += `
-            <tr class="table-primary">
-                <td>${item.itemID}</td>
-                <td>${item.name}</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>`;
-        }
-        else {
-            generatedHTML += `
-            <tr class="table-secondary">
-                <td>${item.itemID}</td>
-                <td>${item.name}</td>
-                <td>-</td>
-                <td>-</td>
-            </tr>`;
-        }
-        alt = !alt;
-    });
+    if (tableHTML == '') {
+      let generatedHTML = '';
+      let alt = true;
+      Object.values(parsedDB.items).forEach(item => {
+          if (alt) {
+              generatedHTML += `
+              <tr class="table-primary">
+                  <td>${item.itemID}</td>
+                  <td>${item.name}</td>
+                  <td>-</td>
+                  <td>-</td>
+              </tr>`;
+          }
+          else {
+              generatedHTML += `
+              <tr class="table-secondary">
+                  <td>${item.itemID}</td>
+                  <td>${item.name}</td>
+                  <td>-</td>
+                  <td>-</td>
+              </tr>`;
+          }
+          alt = !alt;
+      });
+      tableHTML = generatedHTML;
+    }
 
     $('#content').html(`
     <div class="item-content">
@@ -144,7 +148,7 @@ const browseItems = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    ${generatedHTML}
+                    ${tableHTML}
                 </tbody>
             </table>
         </div>
