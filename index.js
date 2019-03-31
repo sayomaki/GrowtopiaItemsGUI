@@ -62,6 +62,7 @@ const generateView = () => {
                         Total item count: ${parsedDB.itemCount}<br/>
                         File version: ${parsedDB.itemsdatVersion}
                         </p>
+                        <button type="button" class="btn btn-success btn-lg" onclick="browseItems()">Browse Items...</button>
                     </div>
                 </div>
             </div>
