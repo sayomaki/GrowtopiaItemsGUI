@@ -36,6 +36,7 @@ body {
 }
 
 .item-content {
+  position: relative;
   margin-top: 1.5%;
   margin-left: 4%;
   padding: 10px;
@@ -65,5 +66,16 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   overflow-y: scroll;
-  height: 85%;
+  height: 70%;
+}
+
+.table-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.item-search {
+  padding-left: 15px;
+  padding-right: 15px;
 }
