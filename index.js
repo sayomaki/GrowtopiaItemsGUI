@@ -107,7 +107,7 @@ const browseItems = () => {
               <tr class="table-primary">
                   <td>${item.itemID}</td>
                   <td>${item.name}</td>
-                  <td>-</td>
+                  <td>${item.rarity}</td>
                   <td>-</td>
               </tr>`;
           }
@@ -116,7 +116,7 @@ const browseItems = () => {
               <tr class="table-secondary">
                   <td>${item.itemID}</td>
                   <td>${item.name}</td>
-                  <td>-</td>
+                  <td>${item.rarity}</td>
                   <td>-</td>
               </tr>`;
           }
@@ -147,7 +147,7 @@ const browseItems = () => {
                     <tr class="table-success">
                     <th scope="col" class="table-sticky">ID</th>
                     <th scope="col" class="table-sticky">Name</th>
-                    <th scope="col" class="table-sticky">-</th>
+                    <th scope="col" class="table-sticky">Rarity</th>
                     <th scope="col" class="table-sticky">-</th>
                     </tr>
                 </thead>
