@@ -47,6 +47,12 @@ const generateView = () => {
     console.log(`Loaded items.dat with ${parsedDB.itemCount} items!`);
     parsedHash = ItemUtils.hashItems(itemFile, itemFile.length);
 
+    showInfo();
+}
+
+const showInfo = () => {
+    if (!loaded) return;
+    
     $('#content').html(`
     <div class="item-content">
         <div class="item-header">
