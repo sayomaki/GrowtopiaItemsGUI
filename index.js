@@ -216,3 +216,22 @@ const fileInfo = () => {
       </div>
   </div>`);
 }
+
+const resetFile = () => {
+  loaded = false;
+  itemMD5 = '';
+  itemSHA256 = '';
+  itemFile = null;
+  itemPath = '';
+  parsedDB = {};
+  parsedHash = 0;
+
+  $('#content').html(`
+  <div class="load-file col-6 mx-auto">
+    <div class="load-text">
+      No items.dat file selected!
+    </div>
+    <button type="button" class="load-btn btn btn-outline-primary btn-lg btn-block" onclick="getFile()">Select file...</button>
+  </div>
+  `);
+}
