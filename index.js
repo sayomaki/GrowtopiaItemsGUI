@@ -32,7 +32,18 @@ const getFile = () => {
             
             itemFile = data;
             loaded = true;
-            console.log("Loaded items.dat file!");
+            generateView();
         });
     });
+}
+
+const generateView = () => {
+    parsedDB = JSON.parse(ItemUtils.parseItems(itemFile, itemFile.length));
+    if (!parsedDB.success) {
+        alert(parsedDB.error);
+        loaded = false;
+        return;
+    }
+    console.log(`Loaded items.dat with ${parsedDB.itemCount} items!`);
+    parsedHash = ItemUtils.hashItems(itemFile, itemFile.length);
 }
