@@ -54,6 +54,18 @@ const generateView = () => {
                 <li class="breadcrumb-item active">Home</li>
             </ol>
         </div>
+        <div class="item-info">
+            <div class="item-count card border-success mb-3" style="max-width: 20rem;">
+                <div class="card-header h4">Items Info</div>
+                    <div class="card-body">
+                        <p>
+                        Total item count: ${parsedDB.itemCount}<br/>
+                        File version: ${parsedDB.itemsdatVersion}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     `);
 }
