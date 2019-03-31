@@ -6,6 +6,7 @@ let itemFile, itemPath;
 let loaded = false;
 let parsedDB = {};
 let parsedHash = 0;
+let itemMD5 = '';
 let tableHTML = '';
 
 const getFile = () => {
@@ -34,6 +35,8 @@ const getFile = () => {
             itemFile = data;
             itemPath = fileNames[0];
             loaded = true;
+            itemMD5 = require('crypto').createHash('md5').update(itemFile).digest('hex');
+
             generateView();
         });
     });
