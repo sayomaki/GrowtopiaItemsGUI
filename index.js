@@ -70,3 +70,17 @@ const generateView = () => {
     </div>
     `);
 }
+
+const browseItems = () => {
+    if (!loaded) return;
+
+    $('#content').html(`
+    <div class="item-content">
+        <div class="item-header">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" onclick="showInfo()">Home</a></li>
+                <li class="breadcrumb-item active">Browse</li>
+            </ol>
+        </div>
+    </div>`);
+}
