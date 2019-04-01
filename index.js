@@ -97,6 +97,7 @@ const showInfo = () => {
                     File version: ${parsedDB.itemsdatVersion}
                     </p>
                     <button type="button" class="btn btn-success btn-lg" onclick="browseItems()">Browse Items...</button>
+                    <div class="spacer"></div>
                 </div>
             </div>
             <div class="item-count card border-info mb-3 mr-3">
@@ -107,6 +108,7 @@ const showInfo = () => {
                     Last modified: ${mtime.toISOString().slice(0,19).replace(/T/g," ")}
                     </p>
                     <button type="button" class="btn btn-info btn-lg" onclick="fileInfo()">More info...</button>
+                    <div class="spacer"></div>
                 </div>
             </div>
             <div class="item-count card border-dark mb-3 mr-3">
@@ -117,6 +119,7 @@ const showInfo = () => {
                     Total Textures: ${textureList.length}
                     </p>
                     <button type="button" class="btn btn-dark btn-lg">Browse assets...</button>
+                    <div class="spacer"></div>
                 </div>
             </div>
         </div>
