@@ -98,3 +98,7 @@ body {
 .item-search input {
   font-size: 15px;
 }
+
+.spacer {
+  height: 10px;
+}
