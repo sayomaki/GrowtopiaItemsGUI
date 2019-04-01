@@ -10,6 +10,8 @@ let itemMD5 = '';
 let itemSHA256 = '';
 let tableHTML = '';
 
+let assetsList = [];
+let assetsHashes = [];
 const getFile = () => {
     dialog.showOpenDialog((fileNames) => {
         if(fileNames === undefined){
@@ -53,6 +55,15 @@ const generateView = () => {
     console.log(`Loaded items.dat with ${parsedDB.itemCount} items!`);
     parsedHash = ItemUtils.hashItems(itemFile, itemFile.length);
 
+    parsedDB.items.forEach(item => {
+      if (item.extraFile != '') {
+        if (textureList.indexOf(item.texture) < 0) {
+          assetsList.push(item.extraFile);
+          assetsHashes.push(item.extraFileHash);
+        }
+      }
+    });
+
     showInfo();
 }
 
@@ -94,7 +105,7 @@ const showInfo = () => {
                 <div class="card-header h4">Assets Info</div>
                 <div class="card-body">
                     <p>
-                    Total Assets: 0<br/>
+                    Total Assets: ${assetsList.length}<br/>
                     Total Textures: 0
                     </p>
                     <button type="button" class="btn btn-dark btn-lg">Browse assets...</button>
