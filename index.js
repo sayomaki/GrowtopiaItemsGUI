@@ -12,6 +12,9 @@ let tableHTML = '';
 
 let assetsList = [];
 let assetsHashes = [];
+let textureList = [];
+let textureHashes = [];
+
 const getFile = () => {
     dialog.showOpenDialog((fileNames) => {
         if(fileNames === undefined){
@@ -62,6 +65,11 @@ const generateView = () => {
           assetsHashes.push(item.extraFileHash);
         }
       }
+      if (item.texture != '') {
+        if (textureList.indexOf(item.texture) > -1) return;
+        textureList.push(item.texture);
+        textureHashes.push(item.textureHash);
+      }
     });
 
     showInfo();
@@ -106,7 +114,7 @@ const showInfo = () => {
                 <div class="card-body">
                     <p>
                     Total Assets: ${assetsList.length}<br/>
-                    Total Textures: 0
+                    Total Textures: ${textureList.length}
                     </p>
                     <button type="button" class="btn btn-dark btn-lg">Browse assets...</button>
                 </div>
