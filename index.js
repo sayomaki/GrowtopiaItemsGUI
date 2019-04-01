@@ -90,6 +90,16 @@ const showInfo = () => {
                     <button type="button" class="btn btn-info btn-lg" onclick="fileInfo()">More info...</button>
                 </div>
             </div>
+            <div class="item-count card border-dark mb-3 mr-3">
+                <div class="card-header h4">Assets Info</div>
+                <div class="card-body">
+                    <p>
+                    Total Assets: 0<br/>
+                    Total Textures: 0
+                    </p>
+                    <button type="button" class="btn btn-dark btn-lg">Browse assets...</button>
+                </div>
+            </div>
         </div>
     </div>
     `);
