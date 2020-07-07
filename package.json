@@ -10,6 +10,6 @@
   "author": "willi123yao",
   "license": "UNLICENSED",
   "dependencies": {
-    "electron": "^4.1.3"
+    "electron": "^7.2.4"
   }
 }
